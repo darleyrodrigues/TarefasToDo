@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: apidetarefas
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: tarefas
+    password: tarefas
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
