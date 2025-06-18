@@ -34,4 +34,12 @@ public class TarefaService {
     public List<Tarefa> listarTodas(){
         return tarefaRepository.findAll();
     }
+
+    public List<Tarefa> buscarPorStatus(Boolean concluida) {
+        return tarefaRepository.findByConcluida(concluida);
+    }
+
+    public List<Tarefa> ordenarPorDataEntrega(){
+        return tarefaRepository.findAllByOrderByDataEntregaAsc();
+    }
 }

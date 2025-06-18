@@ -2,6 +2,7 @@ package com.darleyrodrigues.apidetarefas.controller;
 
 import com.darleyrodrigues.apidetarefas.model.Tarefa;
 import com.darleyrodrigues.apidetarefas.service.TarefaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class TarefaController {
     }
 
     @PostMapping
-    public Tarefa salvar(@RequestBody Tarefa tarefa){
+    public Tarefa salvar(@RequestBody @Valid Tarefa tarefa){
         return tarefaService.salvarTarefa(tarefa);
     }
 
@@ -41,5 +42,15 @@ public class TarefaController {
     @GetMapping
     public List<Tarefa> listarTodas(){
         return tarefaService.listarTodas();
+    }
+
+    @GetMapping("/status")
+    public List<Tarefa> buscarPorStatus(@RequestParam Boolean concluida){
+        return tarefaService.buscarPorStatus(concluida);
+    }
+
+    @GetMapping("/ordenar")
+    public List<Tarefa> ordenarPorDataEntrega(){
+        return tarefaService.ordenarPorDataEntrega();
     }
 }
