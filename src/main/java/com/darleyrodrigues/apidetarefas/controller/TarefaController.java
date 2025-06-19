@@ -2,6 +2,7 @@ package com.darleyrodrigues.apidetarefas.controller;
 
 import com.darleyrodrigues.apidetarefas.model.Tarefa;
 import com.darleyrodrigues.apidetarefas.service.TarefaService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,7 @@ public class TarefaController {
         tarefaService.atualizar(id, tarefa);
     }
 
+    @Operation(summary = "Listar todas as tarefas")
     @GetMapping
     public List<Tarefa> listarTodas(){
         return tarefaService.listarTodas();
